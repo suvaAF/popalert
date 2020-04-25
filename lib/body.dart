@@ -23,7 +23,7 @@ class _BodyState extends State<Body> {
              fontSize: 20.0
            ),
          ),
-          onPressed: alerte),
+          onPressed: (() => dialog('Bienvenue à VERNON!!', 'Admirer le beau paysage avec tous les confinés fictifs ! Un centre-ville habitué au vide sidéral et des sportifs de haut niveau médaillé du non restez vous!'))),
     ) ;
   }
 
@@ -70,6 +70,33 @@ class _BodyState extends State<Body> {
           );
         }
 
+    );
+  }
+
+  Future<Null> dialog(String title, String desc) async {
+    return showDialog(
+        context: context,
+        barrierDismissible: false,
+      builder: (BuildContext context) {
+        return new SimpleDialog(
+          title: new Text(title, textScaleFactor: 1.4,),
+          contentPadding: EdgeInsets.all(10.0),
+          children: <Widget>[
+            new Text(desc),
+            new Container(height: 20.0,),
+            new RaisedButton(
+              color: Colors.teal,
+              textColor: Colors.white,
+              child: new Text('OK'),
+                onPressed: () {
+              print('Appuyé');
+              Navigator.pop(context);
+            })
+
+          ],
+
+        );
+      }
     );
   }
 
