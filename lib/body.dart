@@ -22,14 +22,22 @@ class _BodyState extends State<Body> {
              fontSize: 20.0
            ),
          ),
-          onPressed: pressed),
+          onPressed: snack),
     ) ;
   }
 
-  void pressed() {
-    setState(() {
-      print("On m'a appuyé dessus");
-    });
+
+  void snack() {
+    SnackBar snackBar = new SnackBar(
+        content: new Text(
+            'Je suis une SnackBar',
+          textScaleFactor: 1.5,
+
+        ),
+      duration: new Duration(seconds: 5),
+    );
+
+    Scaffold.of(context).showSnackBar(snackBar);
   }
 
 }
