@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:popalert/body.dart';
 
 void main() => runApp(MyApp());
 
@@ -38,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
         title: Text(widget.title),
       ),
-
+      body: new Body(),
     );
   }
 }
