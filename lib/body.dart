@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Body extends StatefulWidget {
@@ -22,7 +23,7 @@ class _BodyState extends State<Body> {
              fontSize: 20.0
            ),
          ),
-          onPressed: snack),
+          onPressed: alerte),
     ) ;
   }
 
@@ -38,6 +39,38 @@ class _BodyState extends State<Body> {
     );
 
     Scaffold.of(context).showSnackBar(snackBar);
+  }
+
+  Future<Null> alerte() async {
+    return showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return new AlertDialog(
+            title: new Text('Ceci est une alerte', textScaleFactor: 1.5,),
+            content: new Text(
+                'Houston, nous avons un problème avec notre application. Voulez-vous continuer ?'),
+            contentPadding: EdgeInsets.all(5.0),
+            actions: <Widget>[
+              new FlatButton(
+                  onPressed: () {
+                    print('Abort');
+                    Navigator.pop(context);
+                  },
+                  child: new Text(
+                    'Annuler', style: new TextStyle(color: Colors.red),)),
+              new FlatButton(
+                  onPressed: () {
+                    print('Proceed');
+                    Navigator.pop(context);
+                  },
+                  child: new Text("Continuer", style: new TextStyle(color: Colors.blue),))
+
+            ],
+          );
+        }
+
+    );
   }
 
 }
