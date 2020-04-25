@@ -1,6 +1,6 @@
 # popalert
 
-Une Application de message Alert
+Une Application de message Alert pour TEST DEMO
 
 ## Getting Started
 
